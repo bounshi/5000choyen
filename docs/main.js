@@ -1,3 +1,8 @@
+// rare25氏のソースを少し変えたものです。
+//fork先 https://github.com/bounshi/5000choyen
+// 問題があれば連絡お願いします。
+//
+// Last modified 5/31
 var canvas, ctx , textbox;
 
 window.onload = function () {
@@ -8,12 +13,13 @@ window.onload = function () {
   ctx.lineJoin = 'round';
   ctx.setTransform(1,0,-0.4,1,0,0);
 };
-
 function saveImage(){
-    var data = canvas.toDataURL("image/png");
-    window.open(data);
+    vdata = canvas.toDataURL("image/png");
+    img_url = canvas.toDataURL("image/png").replace(new RegExp("data:image/png;base64,"),"");
+    $.post("post.php",{"upload_data":img_url},function(data){ alert("生成完了しました。"); },"html");
+    document.getElementById("result").src = vdata;
+    document.getElementById("can-download").href = canvas.toDataURL();
 }
-
 function redraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   var posx = 70;
@@ -26,7 +32,7 @@ function redraw() {
       grad.addColorStop(0, 'rgb(' + 10 * i + ', ' + 10 * i + ', ' + 10 * i + ')');
 
       ctx.strokeStyle = grad;
-      ctx.lineWidth = 28;
+      ctx.lineWidth = 26;
       ctx.strokeText(text, posx - 3 + i, posy + 2);
     }
   }
@@ -38,14 +44,14 @@ function redraw() {
     grad.addColorStop(value<0?0:value, 'rgba(0,0,0,0)');
     grad.addColorStop(1, 'rgba(0,0,0,255)');
     ctx.strokeStyle = grad;
-    ctx.lineWidth = 28;
+    ctx.lineWidth = 26;
     ctx.strokeText(text, posx + 7, posy + 2);
   }
 
   //黒色
   {
     ctx.strokeStyle = "#000000";
-    ctx.lineWidth = 22;
+    ctx.lineWidth = 20;
     ctx.strokeText(text, posx, posy);
   }
   //金色
@@ -56,12 +62,12 @@ function redraw() {
     grad.addColorStop(0.8, 'rgb(89, 33, 0)');
     grad.addColorStop(1, 'rgb(240, 180, 5)');
     ctx.strokeStyle = grad;
-    ctx.lineWidth = 19;
+    ctx.lineWidth = 17;
     ctx.strokeText(text, posx, posy);
   }
 
   //白
-  ctx.lineWidth = 6;
+  ctx.lineWidth = 4;
   ctx.strokeStyle = '#FFFFFF';
   ctx.strokeText(text, posx, posy - 3);
 
@@ -72,7 +78,7 @@ function redraw() {
     grad.addColorStop(0.5, 'rgb(123, 0, 0)');
     grad.addColorStop(0.51, 'rgb(240, 0, 0)');
     grad.addColorStop(1, 'rgb(5, 0, 0)');
-    ctx.lineWidth = 4;
+    ctx.lineWidth = 2;
     ctx.strokeStyle = grad;
     ctx.strokeText(text, posx, posy - 3);
   }
