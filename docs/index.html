@@ -2,6 +2,15 @@
 <html lang="ja">
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>5000兆円ジェネレーター</title>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@bou_n_shi">
+<meta property="og:type" content="website">
+<meta property="og:title" content="5000兆円ジェネレーター">
+<meta property="og:url" content="https://auri.ga/5000generator"> 
+<meta property="og:image" content="https://auri.ga/5000generator/top.png"> 
+<meta property="og:description" content="5000兆円風のロゴジェネレーターです">
+<meta property="og:site_name" content="5000兆円ジェネレーター">
 <meta charset="utf-8">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -14,20 +23,29 @@
 <title>5000兆円ジェネレーター</title>
 <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="main.js"></script>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
 	<div class="mainbox">
    <div class="mx-auto" style="max-width: 700px;">
    <img src="top.png" class="mx-auto d-block">
    </div>
+   <div class="alert alert-info" role="alert">   <p>このツールはrare25氏の<a href="https://github.com/rare25/5000choyen">5000choyen</a>をforkし、変更したものです。
+   <a class="github-button" href="https://github.com/bounshi" data-show-count="true" aria-label="Follow @bounshi on GitHub">Follow @bounshi</a>
+   <a class="github-button" href="https://github.com/bounshi/5000choyen" data-show-count="true" aria-label="Star bounshi/5000choyen on GitHub">Star</a></div>
     <canvas id="canvas" width="1500px" height="150px"></canvas>
     <input type="text" id="textbox" size="20" class="form-control form-control-lg"  placeholder="5000兆円欲しい" oninput="redraw();" oninput="redraw();">
     <button type="button" class="btn btn-primary" onclick="saveImage();">生成する</button>
     <a download id="can-download" class="btn btn-info">ダウンロード</a>
     <img id="result" src="">
     <br>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="bou_n_shi" data-hashtags="5000兆円ジェネレーター">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <a href="https://mastoshare.tk/post/?text=5000兆円ジェネレーターで5000兆円を作ろう！ " onclick="window.open(this.href, '', 'width=500,height=400'); return false;"><img src="https://mastoshare.tk/img/toot.png" style="width: 75px;"></a>
+    <div class="mx-auto" style="max-width: 700px;">
+   <img src="ga.png" class="mx-auto d-block">
+   </div>
     <iframe width="100%" height="500px" src="img.php" frameborder="0"></iframe>
     </div>
 </body>
-
 </html>

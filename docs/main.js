@@ -14,11 +14,16 @@ window.onload = function () {
   ctx.setTransform(1,0,-0.4,1,0,0);
 };
 function saveImage(){
+    if (!(textbox.value)){ 
+      alert('値を入れてください。');
+      exit;
+    }else{
     vdata = canvas.toDataURL("image/png");
     img_url = canvas.toDataURL("image/png").replace(new RegExp("data:image/png;base64,"),"");
-    $.post("post.php",{"upload_data":img_url},function(data){ alert("生成完了しました。"); },"html");
+    $.post("post.php",{"upload_data":img_url},function(data){ alert("生成が完了しました！"); },"html");
     document.getElementById("result").src = vdata;
     document.getElementById("can-download").href = canvas.toDataURL();
+}
 }
 function redraw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
